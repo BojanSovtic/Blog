@@ -19,6 +19,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .btn-info {
+            color: white;
+        }
+    </style>
+
+    @yield('css')
+
 </head>
 
 <body>
@@ -92,11 +101,17 @@
                         <div class="col-md-4">
                             <ul class="list-groip">
                                 <li class="list-group-item">
-                                    <a href="">Posts</a>
+                                <a href="{{ route('posts.index') }}">Posts</a>
                                 </li>
 
                                 <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
+                                </li>
+                            </ul>
+
+                            <ul class="list-groip mt-5">
+                                <li class="list-group-item">
+                                    <a href="{{ route('removed-posts.index') }}">Removed Posts</a>
                                 </li>
                             </ul>
                         </div>
