@@ -3,15 +3,15 @@
 @section('content')
 
     <div class="d-flex justify-content-end mb-2">
-        <a href="{{ route('categories.create') }}" class="btn btn-success">Add Category</a>
+        <a href="{{ route('tags.create') }}" class="btn btn-success">Add Tag</a>
     </div>
 
     <div class="card card-defult">
-        <div class="card-header">Categories</div>
+        <div class="card-header">Tags</div>
 
         <div class="card-body">
 
-            @if($categories->count() > 0)
+            @if($tags->count() > 0)
                 <table class="table">
                     <thead>
                         <th>Name</th>
@@ -20,23 +20,23 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($tags as $tag)
                             <tr>
                                 <td>
-                                    {{ $category->name }}
+                                    {{ $tag->name }}
                                 </td>
 
                                 <td>
-                                    {{ $category->posts->count() }}
+                                    {{ $tag->posts->count() }}
                                 </td>
 
                                 <td class="float-right">
-                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm">
+                                    <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-info btn-sm">
                                         Edit
                                     </a>
 
                                     <button class="btn btn-danger btn-sm"
-                                        onclick="handleDelete({{ $category->id }})">Delete</button>
+                                        onclick="handleDelete({{ $tag->id }})">Delete</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p class="text-center text-bold">
-                                        Are you sure you want to delete this category?
+                                        Are you sure you want to delete this tag?
                                     </p>
                                 </div>
                                 <div class="modal-footer">
@@ -75,7 +75,7 @@
                 </div>
 
             @else
-                <h3 class="text-center">No categories yet.</h3>
+                <h3 class="text-center">No tags yet.</h3>
             @endif
         </div>
     </div>
@@ -86,7 +86,7 @@
         function handleDelete(id) {
             const form = document.getElementById('deleteCategoryForm');
 
-            form.action = '/categories/' + id;
+            form.action = '/tags/' + id;
 
             $('#deleteModal').modal('show');
         }

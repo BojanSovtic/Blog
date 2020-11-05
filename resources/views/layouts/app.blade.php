@@ -97,6 +97,12 @@
                         </div>
                     @endif
 
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif
+
                     <div class="row">
                         <div class="col-md-4">
                             <ul class="list-groip">
@@ -106,6 +112,10 @@
 
                                 <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <a href="{{ route('tags.index') }}">Tags</a>
                                 </li>
                             </ul>
 
@@ -127,6 +137,7 @@
         </main>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     @yield('scripts')
 
 </body>
