@@ -69,6 +69,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
+                                        My Profile
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -106,12 +110,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <ul class="list-groip">
+
+                                @if(auth()->user()->isAdmin())
+                                    <li class="list-group-item">
+                                        <a href="{{ route('users.index') }}">
+                                            Users
+                                        </a>
+                                    </li>
+                                @endif
+
                                 <li class="list-group-item">
-                                <a href="{{ route('posts.index') }}">Posts</a>
+                                    <a href="{{ route('posts.index') }}">Posts</a>
                                 </li>
 
                                 <li class="list-group-item">
-                                <a href="{{ route('categories.index') }}">Categories</a>
+                                    <a href="{{ route('categories.index') }}">Categories</a>
                                 </li>
 
                                 <li class="list-group-item">
